@@ -121,11 +121,8 @@ public class AddressBook {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Person Detail you want to search :");
 		String detail = scanner.next();
-		for(AddressBook per: contact) {
-			if(per.state.equalsIgnoreCase(detail) || per.city.equalsIgnoreCase(detail)) {
-			System.out.println(per);
-			}
-		}
+		contact.stream().forEach(a-> {if(a.state.equalsIgnoreCase(detail) || a.city.equalsIgnoreCase(detail)) System.out.println(a);});
+	//	contact.forEach(a-> {if(a.state.equalsIgnoreCase(detail) || a.city.equalsIgnoreCase(detail)) System.out.println(a);});
 		
 
 	}
@@ -134,11 +131,8 @@ public class AddressBook {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Person Name you want to delete :");
 		String fname = scanner.nextLine();
-		for(AddressBook per:contact) {
-			if( per.fname.equals(fname)) {
-			    contact.remove(per);
-			}
-		}
+		contact.forEach(a-> { if(a.fname.equals(fname)) contact.remove(a);});
+		
 
 	}
 
